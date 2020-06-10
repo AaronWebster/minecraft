@@ -1,5 +1,5 @@
 [Unit]
-Description=Restart Minecraft server
+Description=Update Minecraft Server Binary
 
 [Timer]
 OnCalendar=daily

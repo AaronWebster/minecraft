@@ -1,5 +1,5 @@
 [Unit]
-Description=Restart/Update Minecraft Server
+Description=Update Minecraft Server Binary
 
 [Service]
 Type=oneshot

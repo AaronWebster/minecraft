@@ -6,7 +6,6 @@ After=network.service
 Type=simple
 User=minecraft
 WorkingDirectory=/opt/minecraft/%i
-ExecStartPre=/opt/minecraft/update_server.sh
 ExecStart=/usr/bin/java -Xms6G -Xmx12G -jar /opt/minecraft/server.jar nogui
 Restart=always
 RestartSec=5
