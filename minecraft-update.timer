@@ -2,7 +2,7 @@
 Description=Update Minecraft Server Binary
 
 [Timer]
-OnCalendar=daily
+OnCalendar=*-*-* 4:00:00 PDT
 Persistent=true
 
 [Install]

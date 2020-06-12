@@ -4,5 +4,7 @@ Description=Update Minecraft Server Binary
 [Service]
 Type=oneshot
 ExecStartPre=/bin/systemctl stop minecraft@*.service
+ExecStartPre=/bin/systemctl stop minecraft-advertise.service
 ExecStart=/opt/minecraft/update_server.sh
 ExecStartPost=/bin/systemctl start minecraft@*.service
+ExecStartPost=/bin/systemctl start minecraft-advertise.service

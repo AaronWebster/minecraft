@@ -1,15 +1,15 @@
 [Unit]
 Description=Advertise Minecraft Server
-After=network.service
+After=network.target
 
 [Service]
 Type=simple
 User=minecraft
+Group=minecraft
 EnvironmentFile=/opt/minecraft/%i/env.sh
 ExecStart=/usr/bin/python3 /opt/minecraft/advertise.py
 Restart=always
 RestartSec=5
-TimeoutStartSec=300
 
 [Install]
 WantedBy=multi-user.target
