@@ -6,3 +6,4 @@ Type=oneshot
 User=minecraft
 Group=minecraft
 ExecStart=/opt/minecraft/snapshot.sh %i
+ExecStartPost=/opt/minecraft/sync_to_google_drive.sh
