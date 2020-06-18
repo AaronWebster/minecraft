@@ -1,0 +1,8 @@
+[Unit]
+Description=Snapshot Minecraft Worlds
+
+[Service]
+Type=oneshot
+User=minecraft
+Group=minecraft
+ExecStart=/opt/minecraft/snapshot.sh %i
