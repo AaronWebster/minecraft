@@ -3,12 +3,7 @@ Description=Update Minecraft Server Binary
 
 [Service]
 Type=oneshot
-ExecStartPre=/bin/systemctl stop minecraft@creative.service
-ExecStartPre=/bin/systemctl stop minecraft-advertise@creative.service
-ExecStartPre=/bin/systemctl stop minecraft@survival.service
-ExecStartPre=/bin/systemctl stop minecraft-advertise@survival.service
+User=minecraft
+Group=minecraft
+WorkingDirectory=/opt/minecraft
 ExecStart=/opt/minecraft/update_server.sh
-ExecStartPost=/bin/systemctl start minecraft@creative.service
-ExecStartPost=/bin/systemctl start minecraft-advertise@creative.service
-ExecStartPost=/bin/systemctl start minecraft@survival.service
-ExecStartPost=/bin/systemctl start minecraft-advertise@survival.service

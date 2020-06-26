@@ -1,0 +1,9 @@
+[Unit]
+Description=Reboot server
+
+[Timer]
+OnCalendar=*-*-* 1:00:00 PDT
+Unit=reboot.target
+
+[Install]
+WantedBy=timers.target
