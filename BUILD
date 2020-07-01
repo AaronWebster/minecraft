@@ -45,5 +45,7 @@ pkg_deb(
   package = "minecraft-server",
   version = "1.0.0",  
   data = ":debian_data",
+  subsection = "non-free/misc",
+  postinst = "postinst",
 )
 
