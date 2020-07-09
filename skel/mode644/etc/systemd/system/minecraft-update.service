@@ -6,4 +6,7 @@ Type=oneshot
 User=minecraft
 Group=minecraft
 WorkingDirectory=/opt/minecraft
-ExecStart=/opt/minecraft/update_server.sh
+ExecStart=/opt/minecraft/update_server.py
+
+[Install] 
+WantedBy=timers.target

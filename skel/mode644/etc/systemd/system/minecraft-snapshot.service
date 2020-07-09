@@ -5,5 +5,9 @@ Description=Snapshot Minecraft Worlds
 Type=oneshot
 User=minecraft
 Group=minecraft
-ExecStart=/opt/minecraft/snapshot.sh %i
+ExecStart=/opt/minecraft/snapshot.sh creative
+ExecStart=/opt/minecraft/snapshot.sh survival
 ExecStartPost=/opt/minecraft/sync_to_google_drive.sh
+
+[Install]
+WantedBy=timers.target
