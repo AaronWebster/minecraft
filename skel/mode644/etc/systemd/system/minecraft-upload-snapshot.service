@@ -1,11 +1,11 @@
 [Unit]
-Description=Snapshot Minecraft Worlds
+Description=Upload Minecraft Snapshot
 
 [Service]
 Type=oneshot
 User=minecraft
 Group=minecraft
-ExecStart=/opt/minecraft/snapshot.sh
+ExecStart=/opt/minecraft/sync_to_google_drive.sh
 TimeoutSec=900
 
 [Install]

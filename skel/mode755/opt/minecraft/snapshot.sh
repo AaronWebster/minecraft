@@ -1,10 +1,6 @@
 #!/usr/bin/bash
 
-if [ -z "$1" ]; then
-  echo "Missing required world name"
-  exit -1
-fi 
+REPOSITORY=/home/minecraft/snapshots.attic
 
-SNAPSHOT_DIR="/opt/minecraft/snapshot"
-WORLD="${1}"
-tar --create --verbose --gzip --listed-incremental="${SNAPSHOT_DIR}/${WORLD}_incremental.snar" --file="${SNAPSHOT_DIR}/${WORLD}_$(date +%m%d%Y%H%M%S).tar.gz" "/opt/minecraft/${WORLD}"
+/opt/attic/attic create --stats "${REPOSITORY}"::minecraft-`date +%m%d%Y%H%M%S` /opt/minecraft
+/opt/attic/attic prune -v "${REPOSITORY}" --keep-hourly=24 --keep-daily=7 --keep-weekly=4 --keep-monthly=12
