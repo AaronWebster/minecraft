@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@rules_pkg//:pkg.bzl", "pkg_tar", "pkg_deb")
+load("@rules_pkg//:pkg.bzl", "pkg_deb", "pkg_tar")
 
 pkg_tar(
     name = "mode644_files",
@@ -38,14 +38,20 @@ pkg_tar(
 )
 
 pkg_deb(
-  name = "minecraft_server",
-  description = "Minecraft Server Files",
-  homepage = "https://github.com/AaronWebster/minecraft-server",
-  maintainer = "Aaron Webster",
-  package = "minecraft-server",
-  version = "1.0.0",  
-  data = ":debian_data",
-  subsection = "non-free/misc",
-  postinst = "postinst",
+    name = "minecraft_server",
+    data = ":debian_data",
+    depends = [
+        "libacl1-dev",
+        "libssl-dev",
+        "cython3",
+        "python3-msgpack",
+        "git",
+        "ddclient",
+    ],
+    description = "Minecraft Server Files",
+    homepage = "https://github.com/AaronWebster/minecraft-server",
+    maintainer = "Aaron Webster",
+    package = "minecraft-server",
+    postinst = "postinst",
+    version = "1.0.1",
 )
-

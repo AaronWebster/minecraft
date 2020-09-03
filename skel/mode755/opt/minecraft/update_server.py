@@ -2,7 +2,6 @@
 
 import urllib.request
 from html.parser import HTMLParser
-from mcrcon import MCRcon
 import os
 import dbus
 import re
@@ -36,8 +35,8 @@ def BroadcastMessage(message):
                 service, dbus_interface='org.freedesktop.DBus.Properties')
             config = ReadConfig(os.path.join(interface.Get(
                 'org.freedesktop.systemd1.Service', 'WorkingDirectory'), 'server.properties'))
-            with MCRcon('localhost:%s' % config['rcon.port'], 'M#necraftRkon') as mcr:
-                mcr.command('/say %s' % message)
+            os.system('/usr/local/bin/mcrcon -P %s -p "M#necraftRkon" "say %s"' %
+                      (config['rcon.port'], message))
 
 
 class Parser(HTMLParser):

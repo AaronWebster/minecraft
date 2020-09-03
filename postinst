@@ -5,4 +5,26 @@ set -o xtrace
 # Only run in the configure phase of the debian package
 [[ "$1" != "configure" ]] && exit 0
 
-# TODO: Start services, set up users, etc.
+
+# Build attic, required for snapshots.
+tmpdir="$(mktemp -d)"
+trap "{ rm -rf ${tmpdir}; }" EXIT
+cd "${tmpdir}"
+git clone https://github.com/jmfernandez/attic
+cd attic
+python3 setup.py install
+cd -
+
+/bin/systemctl daemon-reload
+
+units=(
+  "minecraft-update.timer"
+  "minecraft-snapshot.timer"
+  "minecraft-upload-snapshot.timer"
+  "minecraft-watcher.path"
+)
+
+for unit in "${units[@]}"; do
+  systemctl enable "${unit}"
+  systemctl start "${unit}"
+done
