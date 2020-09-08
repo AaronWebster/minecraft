@@ -10,7 +10,7 @@ set -o xtrace
 tmpdir="$(mktemp -d)"
 trap "{ rm -rf ${tmpdir}; }" EXIT
 cd "${tmpdir}"
-git clone https://github.com/jmfernandez/attic
+git clone https://github.com/AaronWebster/attic
 cd attic
 python3 setup.py install
 cd -
