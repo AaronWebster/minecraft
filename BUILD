@@ -50,9 +50,9 @@ pkg_deb(
         "python3-dbus",
     ],
     description = "Minecraft Server Files",
-    homepage = "https://github.com/AaronWebster/minecraft-server",
+    homepage = "https://github.com/AaronWebster/minecraft",
     maintainer = "Aaron Webster",
     package = "minecraft-server",
     postinst = "postinst",
-    version = "1.0.1",
+    version = "1.0.2",
 )
