@@ -47,6 +47,7 @@ pkg_deb(
         "python3-msgpack",
         "git",
         "ddclient",
+        "python3-dbus",
     ],
     description = "Minecraft Server Files",
     homepage = "https://github.com/AaronWebster/minecraft-server",
