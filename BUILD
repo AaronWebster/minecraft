@@ -54,5 +54,5 @@ pkg_deb(
     maintainer = "Aaron Webster",
     package = "minecraft-server",
     postinst = "postinst",
-    version = "1.0.2",
+    version = "1.0.3",
 )
